@@ -5,7 +5,7 @@
 <%
 String message = request.getParameter("message");
 if (message != null){
-	out.println(message);
+	out.println("<font color='red'>" + message + "</font>");
 }
 %>
 <form action="LoginServlet">

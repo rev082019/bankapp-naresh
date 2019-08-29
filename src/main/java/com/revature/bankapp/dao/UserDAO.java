@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.revature.bankapp.exception.DBException;
 import com.revature.bankapp.model.User;
 import com.revature.bankapp.util.ConnectionUtil;
 
@@ -36,7 +37,7 @@ public class UserDAO {
 		return isValidLogin;
 	}
 
-	public void register(User user) throws Exception {
+	public void register(User user) throws DBException {
 		
 		Connection con = null;
 		PreparedStatement pst = null;
@@ -53,7 +54,7 @@ public class UserDAO {
 			System.out.println("No of rows inserted:" + rows);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new Exception("Unable to insert user" , e);
+			throw new DBException("Unable to insert user" , e);
 		}
 				
 	}

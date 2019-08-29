@@ -1,13 +1,15 @@
 package com.revature.bankapp.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.bankapp.dao.UserDAO;
+import com.revature.bankapp.exception.ServiceException;
 import com.revature.bankapp.model.User;
+import com.revature.bankapp.service.UserService;
 
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,14 +24,13 @@ public class RegisterServlet extends HttpServlet {
 		user.setEmail(email);
 		user.setPassword(password);
 		
-		UserDAO userDAO = new UserDAO();
 		try {
-			userDAO.register(user);
+			UserService.register(user);
 			response.sendRedirect("index.jsp");
-		} catch (Exception e) {
+		} catch (ServiceException e) {
 			e.printStackTrace();
 			response.sendRedirect("register.jsp?message=" + e.getMessage());
-		}
+		} 
 		
 	}
 

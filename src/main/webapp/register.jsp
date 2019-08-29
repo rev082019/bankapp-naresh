@@ -8,6 +8,13 @@
 </head>
 <body>
 <h3>Register</h3>
+<%
+String message = request.getParameter("message");
+if (message != null){
+	out.println("<font color='red'>" + message + "</font>");
+}
+%>
+
 <form action="RegisterServlet">
 
 Name: <input type="text" name="name" required /> <br/>
