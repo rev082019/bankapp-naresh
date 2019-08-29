@@ -11,7 +11,7 @@ if (message != null){
 <form action="LoginServlet">
 Email : <input type="text" name="email" required />
 <br/>
-Password: <input type="text" name="password" required />
+Password: <input type="password" name="password" required />
 <br/>
 <button type="submit">Submit</button>
 </form>
