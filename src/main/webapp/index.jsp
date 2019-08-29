@@ -14,6 +14,7 @@ Email : <input type="text" name="email" required />
 Password: <input type="password" name="password" required />
 <br/>
 <button type="submit">Submit</button>
+<a href="register.jsp">Register</a>
 </form>
 </body>
 </html> 

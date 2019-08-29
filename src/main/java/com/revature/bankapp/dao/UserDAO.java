@@ -3,7 +3,9 @@ package com.revature.bankapp.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import com.revature.bankapp.model.User;
 import com.revature.bankapp.util.ConnectionUtil;
 
 public class UserDAO {
@@ -32,5 +34,27 @@ public class UserDAO {
 			ConnectionUtil.close(con, pst);
 		}
 		return isValidLogin;
+	}
+
+	public void register(User user) throws Exception {
+		
+		Connection con = null;
+		PreparedStatement pst = null;
+		String sql = "insert into users(name,email,password) values ( ?,?,?)";
+		
+		try {
+			con = ConnectionUtil.getConnection();
+			pst = con.prepareStatement(sql);
+			pst.setString(1, user.getName());
+			pst.setString(2, user.getEmail());
+			pst.setString(3, user.getPassword());
+			
+			int rows = pst.executeUpdate();
+			System.out.println("No of rows inserted:" + rows);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("Unable to insert user" , e);
+		}
+				
 	}
 }
