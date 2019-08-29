@@ -13,7 +13,7 @@ Email : <input type="text" name="email" required />
 <br/>
 Password: <input type="password" name="password" required />
 <br/>
-<button type="submit">Submit</button>  
+<button type="submit">Submit</button>
 </form>
 </body>
 </html>
