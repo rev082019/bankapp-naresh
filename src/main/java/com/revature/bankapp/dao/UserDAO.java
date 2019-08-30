@@ -150,6 +150,30 @@ public class UserDAO {
 		
 	}
 	
+	public void delete(int id) throws DBException {
+
+		Connection con = null;
+		PreparedStatement pst = null;
+		String sql = "delete from users where id = ?";
+		
+		try {
+			con = ConnectionUtil.getConnection();
+			pst = con.prepareStatement(sql);
+			pst.setInt(1,id);
+			
+			int rows = pst.executeUpdate();
+			System.out.println("No of rows updated:" + rows);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DBException("Unable to delete account" , e);
+		}
+		finally {
+			ConnectionUtil.close(con, pst);
+		}
+		
+		
+	}
+	
 	public void updateProfile(User user) throws DBException {
 
 		Connection con = null;

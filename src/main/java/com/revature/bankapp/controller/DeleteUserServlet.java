@@ -8,31 +8,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.bankapp.dao.UserDAO;
 import com.revature.bankapp.exception.DBException;
-import com.revature.bankapp.model.User;
 
 /**
- * Servlet implementation class UpdateProfileServlet
+ * Servlet implementation class DeleteUserServlet
  */
-public class UpdateProfileServlet extends HttpServlet {
+public class DeleteUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String userId = request.getParameter("userId");
-		String name =  request.getParameter("name");
+		Integer id = Integer.parseInt(userId);
 		UserDAO userDAO = new UserDAO();
-		
-		User user = new User();
-		user.setId(Integer.parseInt(userId));
-		user.setName(name);
-		
 		try {
-			userDAO.updateProfile(user);
-			response.sendRedirect("home.jsp");
+			userDAO.delete(id);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
-		
+		response.sendRedirect("ListUserServlet");
 	}
 
 

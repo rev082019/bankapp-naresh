@@ -15,7 +15,7 @@ User user  = (User)request.getAttribute("USER_DETAIL");
 
 
 <h3>Update User Details</h3>
-<form action="UpdateProfileServlet">
+<form action="UpdateUserServlet">
 <table border="1">
 <tr><th>Id </th> <td> <input type="text" name="userId" value="<%=user.getId() %>" readonly> </td> </tr>
 <tr><th>Name</th> <td> <input type="text" name="name" value="<%= user.getName() %>"> </td> </tr>

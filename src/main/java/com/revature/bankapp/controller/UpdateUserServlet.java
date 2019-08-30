@@ -11,13 +11,12 @@ import com.revature.bankapp.exception.DBException;
 import com.revature.bankapp.model.User;
 
 /**
- * Servlet implementation class UpdateProfileServlet
+ * Servlet implementation class UpdateUserServlet
  */
-public class UpdateProfileServlet extends HttpServlet {
+public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
+      
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String userId = request.getParameter("userId");
 		String name =  request.getParameter("name");
 		UserDAO userDAO = new UserDAO();
@@ -28,12 +27,10 @@ public class UpdateProfileServlet extends HttpServlet {
 		
 		try {
 			userDAO.updateProfile(user);
-			response.sendRedirect("home.jsp");
+			response.sendRedirect("ListUserServlet");
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
-		
 	}
-
 
 }

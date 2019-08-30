@@ -34,9 +34,11 @@ for(User user: users) {
 <td><a href="UpdateAccountServlet?userId=<%=user.getId()%>&status=true">Activate</a></td>
 <td><a href="UpdateAccountServlet?userId=<%=user.getId()%>&status=false">DeActivate</a></td>
 <td><a href="ShowUserServlet?userId=<%=user.getId()%>">View</a></td>
+<td><a href="DeleteUserServlet?userId=<%=user.getId()%>">Delete</a></td>
 </tr>
 <%} %>
 </tbody>
 </table>
+<a href="register.jsp">Add User</a>
 </body>
 </html>
