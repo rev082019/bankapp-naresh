@@ -28,7 +28,9 @@ public class UpdateProfileServlet extends HttpServlet {
 		
 		try {
 			userDAO.updateProfile(user);
-			response.sendRedirect("home.jsp");
+			String referer = request.getHeader("Referer");
+			System.out.println(referer);
+			response.sendRedirect("index.jsp");
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
