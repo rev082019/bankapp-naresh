@@ -47,4 +47,18 @@ public class UserService {
 			throw new ServiceException("Unable to deactivate account for this userId -" + userId);
 		}
 	}
+	
+	public User login(String email, String password) throws ServiceException {
+		User user = null;
+		try {
+			UserDAO userDAO = new UserDAO();
+			user = userDAO.login(email, password);
+		} catch (DBException e) {
+			e.printStackTrace();
+			throw new ServiceException("Unable to login");
+			
+		}
+		return user;
+
+	}
 }

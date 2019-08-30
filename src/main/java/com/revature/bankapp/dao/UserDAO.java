@@ -13,7 +13,7 @@ import com.revature.bankapp.util.ConnectionUtil;
 
 public class UserDAO {
 
-	public User login(String email, String password) {
+	public User login(String email, String password) throws DBException {
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
@@ -37,6 +37,7 @@ public class UserDAO {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			throw new DBException("Unable to login",e);
 		}
 		finally {
 			ConnectionUtil.close(con, pst);

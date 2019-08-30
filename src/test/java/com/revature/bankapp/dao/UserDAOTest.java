@@ -17,7 +17,12 @@ public class UserDAOTest {
 		String email = "n@gmail.com";
 		String password = "pass123";
 		UserDAO userDAO = new UserDAO();
-		User user = userDAO.login(email, password);
+		User user = null;
+		try {
+			user = userDAO.login(email, password);
+		} catch (DBException e) {
+			e.printStackTrace();
+		}
 		assertNotNull(user);
 	}
 	
@@ -27,7 +32,13 @@ public class UserDAOTest {
 		String email = "";
 		String password = "";
 		UserDAO userDAO = new UserDAO();
-		User user = userDAO.login(email, password);
+		User user = null;
+		try {
+			user = userDAO.login(email, password);
+		} catch (DBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertNull(user);
 	}
 	
