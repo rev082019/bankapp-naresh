@@ -8,14 +8,11 @@
 <title>Homepage</title>
 </head>
 <body>
-<h3>Welcome to HomePage</h3>
+<h3>Welcome to Admin HomePage</h3>
 <!-- Scriptlets -->
 <%
 User user = (User)session.getAttribute("LOGGED_IN_USER");
 %>
-Welcome <%=user.getName() %> ( <a href="LogoutServlet">Logout</a>)
-
-
-<a href="profile.jsp">Update Profile</a>
+Welcome <%=user.getName() %>( <a href="LogoutServlet">Logout</a>)
 </body>
 </html>
