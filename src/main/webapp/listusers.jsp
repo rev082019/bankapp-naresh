@@ -32,7 +32,8 @@ for(User user: users) {
 <tr><td><%=user.getId() %> </td><td><%= user.getName() %> </td><td><%= user.getEmail() %> </td>
 <td><%=user.getActive() %></td>
 <td><a href="UpdateAccountServlet?userId=<%=user.getId()%>&status=true">Activate</a></td>
-<td><a href="UpdateAccountServlet?userId=<%=user.getId()%>&status=false">DeActivate</a>
+<td><a href="UpdateAccountServlet?userId=<%=user.getId()%>&status=false">DeActivate</a></td>
+<td><a href="ShowUserServlet?userId=<%=user.getId()%>">View</a></td>
 </tr>
 <%} %>
 </tbody>
