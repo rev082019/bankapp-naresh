@@ -18,5 +18,10 @@ Welcome <%=user.getName() %>( <a href="LogoutServlet">Logout</a>).
 <br/>
 
 <a href="ListUserServlet">List Users</a>
+<br/>
+<a href="createaccount.jsp">Create Account</a>
+<br/>
+<a href="ListAccountServlet">List Accounts</a>
+
 </body>
 </html>

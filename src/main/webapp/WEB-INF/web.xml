@@ -58,6 +58,24 @@
   	<description></description>
   	<servlet-class>com.revature.bankapp.controller.UpdateUserServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>InsertAccountServlet</servlet-name>
+  	<display-name>InsertAccountServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.bankapp.controller.InsertAccountServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListAccountServlet</servlet-name>
+  	<display-name>ListAccountServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.bankapp.controller.ListAccountServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListMyAccountsServlet</servlet-name>
+  	<display-name>ListMyAccountsServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.bankapp.controller.ListMyAccountsServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
@@ -93,5 +111,17 @@
   <servlet-mapping>
   	<servlet-name>UpdateUserServlet</servlet-name>
   	<url-pattern>/UpdateUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InsertAccountServlet</servlet-name>
+  	<url-pattern>/InsertAccountServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListAccountServlet</servlet-name>
+  	<url-pattern>/ListAccountServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListMyAccountsServlet</servlet-name>
+  	<url-pattern>/ListMyAccountsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

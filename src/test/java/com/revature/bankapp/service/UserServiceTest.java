@@ -1,4 +1,4 @@
-package com.revature.bankapp;
+package com.revature.bankapp.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -6,9 +6,10 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import com.revature.bankapp.exception.ServiceException;
-import com.revature.bankapp.service.UserService;
 
 public class UserServiceTest {
+	
+	
 
 	@Test
 	public void testDeactivateAccount() {
