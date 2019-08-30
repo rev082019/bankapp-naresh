@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.bankapp.exception.DBException;
 import com.revature.bankapp.model.User;
@@ -92,6 +94,36 @@ public class UserDAO {
 			ConnectionUtil.close(con, pst);
 		}
 		return user;
+	}
+	
+	public List<User> list() {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		List<User> list = new ArrayList<User>();
+		try {
+			con = ConnectionUtil.getConnection();
+			String sql = "select id,name,email,active,role from users where role='U'";
+			pst = con.prepareStatement(sql);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setName(rs.getString("name"));
+				user.setEmail(rs.getString("email"));
+				user.setActive(rs.getBoolean("active"));
+				user.setRole(rs.getString("role"));
+				
+				list.add(user);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			ConnectionUtil.close(con, pst);
+		}
+		return list;
 	}
 	
 	public void deactivateAccount(int id) throws DBException {
