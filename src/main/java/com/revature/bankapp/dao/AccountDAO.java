@@ -46,19 +46,22 @@ public class AccountDAO {
 		List<Account> list = new ArrayList<Account>();
 		try {
 			con = ConnectionUtil.getConnection();
-			String sql = "select a.id,a.account_type, a.balance, a.created_date, u.id as user_id from accounts a, users u where a.user_id = u.id and a.user_id = ?";
+			String sql = "select a.id,a.account_type, a.balance, a.created_date, u.id as user_id,u.name from accounts a, users u where a.user_id = u.id and a.user_id = ?";
 			pst = con.prepareStatement(sql);
 			pst.setInt(1,userId);
 			rs = pst.executeQuery();
 			while(rs.next()) {
 				User user = new User();
 				user.setId(rs.getInt("user_id"));
+				user.setName(rs.getString("name"));
+				
 				Account account = new Account();
 				account.setId(rs.getInt("id"));
 				account.setUser(user);				
 				account.setType(rs.getString("account_type"));
 				account.setBalance(rs.getInt("balance"));
 				account.setCreatedDate(rs.getTimestamp("created_date").toLocalDateTime());
+				
 				list.add(account);
 			}
 		}

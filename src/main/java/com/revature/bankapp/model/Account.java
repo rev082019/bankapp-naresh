@@ -6,19 +6,14 @@ public class Account {
 
 	private Integer id;
 	
-	private User user;
+	//private int userId;
+	private User user; // HAS-A
 	
-	private String type;
-	
-	public String getType() {
-		return type;
-	}
+	private String type;	
 
-	public void setType(String type) {
-		this.type = type;
-	}
+	private Integer balance;	
 
-	private Integer balance;
+	private LocalDateTime createdDate;
 	
 	@Override
 	public String toString() {
@@ -26,10 +21,18 @@ public class Account {
 				+ createdDate + "]";
 	}
 
-	private LocalDateTime createdDate;
 
 	public Integer getId() {
 		return id;
+	}
+	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public void setId(Integer id) {
