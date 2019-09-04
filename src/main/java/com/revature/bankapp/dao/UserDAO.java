@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +61,10 @@ public class UserDAO {
 			
 			int rows = pst.executeUpdate();
 			System.out.println("No of rows inserted:" + rows);
-		} catch (SQLException e) {
+		}catch(SQLIntegrityConstraintViolationException e) {
+			throw new DBException("Email already exists" );
+		}
+		catch (SQLException e) {
 			e.printStackTrace();
 			throw new DBException("Unable to insert user" , e);
 		}

@@ -76,6 +76,18 @@
   	<description></description>
   	<servlet-class>com.revature.bankapp.controller.ListMyAccountsServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ListUserServletJSON</servlet-name>
+  	<display-name>ListUserServletJSON</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.bankapp.controller.ListUserServletJSON</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterServletJSON</servlet-name>
+  	<display-name>RegisterServletJSON</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.bankapp.controller.RegisterServletJSON</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
@@ -123,5 +135,13 @@
   <servlet-mapping>
   	<servlet-name>ListMyAccountsServlet</servlet-name>
   	<url-pattern>/ListMyAccountsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListUserServletJSON</servlet-name>
+  	<url-pattern>/ListUserServletJSON</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterServletJSON</servlet-name>
+  	<url-pattern>/RegisterServletJSON</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/util.js"></script>
+<script>
+	function register() {
+		console.log("Register");
+		event.preventDefault();
+
+		// step 1: Get form values
+		let name = document.getElementById("name").value;
+		let email = document.getElementById("email").value;
+		let password = document.getElementById("password").value;
+
+		// prepare formdata
+		let formData = "name="+name + "&email="+email + "&password=" + password;		
+		console.log(formData);
+
+		//send ajax request
+		var url = "http://localhost:8080/bankapp-web/RegisterServletJSON";
+		ajax(url, "POST", formData, function(response) {
+			console.log("Response:" + JSON.stringify(response) );
+			var message = response.message;
+			//alert(message);
+			document.querySelector("#message").innerHTML = "<font color='green'>" + message + "</font>";
+		}, function(error) {
+			console.log("Error:" + JSON.stringify(error));
+			var message = error.errorMessage;
+			console.log(message);
+			//alert(message);
+			document.querySelector("#message").innerHTML = "<font color='red'>" + message + "</font>";
+		});
+
+	}
+</script>
+</head>
+<body>
+	<h3>Register</h3>
+	<div id="message">
+	
+	</div>
+
+	<form onsubmit="register()">
+
+		Name: <input type="text" name="name" id="name" required /> <br />
+		Email : <input type="email" name="email" id="email" required /><br />
+		Password : <input type="password" name="password" id="password"
+			required /><br />
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>
